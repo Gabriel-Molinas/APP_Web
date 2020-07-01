@@ -1,0 +1,45 @@
+    input::-webkit-input-placeholder {
+    color: #33322c80 !important;
+    }
+     
+    input:-moz-placeholder { /* Firefox 18- */
+    color: #33322c80 !important;  
+    }
+     
+    input::-moz-placeholder {  /* Firefox 19+ */
+    color: #33322c80 !important;  
+    }
+     
+    input:-ms-input-placeholder {  
+    color: #33322c80 !important;  
+    }
+    .label-badge
+    {
+        color: #9C6059;
+    }
+    .option-badge
+    {
+        color: #33322c80;
+    }
+    .h-divider{
+        margin-top:5px;
+        margin-bottom:5px;
+        height:1px;
+        width:100%;
+        border-top:1px solid #9C6059;
+       }
+    .border-input{
+        border-color: #5b5a5521;
+    }
+
+    .navbar-nav.navbar-center {
+        position: absolute;
+        left: 50%;
+        transform: translatex(-50%);
+    }
+    .unity{
+        fill:white;
+        stroke:black;
+        stroke-width:1;
+        opacity:0.5;
+    }
