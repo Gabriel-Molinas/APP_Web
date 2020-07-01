@@ -4,5 +4,6 @@ import ReactDOM from 'react-dom';
 import Badge from './components/Badge';
 import 'bootstrap/dist/css/bootstrap.css';
 
-const container = document.getElementById('app').listen(process.env.PORT || 5000);
+const container = document.getElementById('app');
+
 ReactDOM.render(<Badge />, container);
