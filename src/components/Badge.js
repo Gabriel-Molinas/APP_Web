@@ -89,7 +89,7 @@ class Badge extends React.Component {
                     </div>
 
                     <div class= 'form-group m-2'>
-                    <input type="button" value="REALIZAR PEDIDO" class="form-control rounded-0 btn btn-danger"></input>
+                    <input type="button" value="REALIZAR PEDIDO" class="form-control rounded-0 btn btn-danger" disabled></input>
                     </div>
             </form>
         )
