@@ -26,7 +26,7 @@ class Badge extends React.Component {
         if(e.target.name == "finish"){
             console.log("Holaa Fin");
 
-            axios.get(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${process.env.TELEGRAM_GROUP_ID}&text= Bueno, un peso menos`)
+            axios.get("https://api.telegram.org/bot"+process.env.TELEGRAM_BOT_TOKEN+"/sendMessage?chat_id="+process.env.TELEGRAM_GROUP_ID+"&text= Bueno, un peso menos")
             .then(response => console.log("response"))
         }
 
