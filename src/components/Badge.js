@@ -4,6 +4,7 @@ import header from './images/head-img.png';
 import suma from './images/Suma.png';
 import resta from './images/Resta.png';
 import axios from 'axios';
+require('dotenv/config');
 
 class Badge extends React.Component {
     constructor () {
@@ -26,8 +27,8 @@ class Badge extends React.Component {
         if(e.target.name == "finish"){
             console.log("Holaa Fin");
 
-            axios.get("https://api.telegram.org/bot"+process.env.TELEGRAM_BOT_TOKEN+"/sendMessage?chat_id="+process.env.TELEGRAM_GROUP_ID+"&text= Bueno, un peso menos")
-            .then(response => console.log("response"))
+            axios.get(process.env.TEST)
+            .then(response => console.log("Listoo"))
         }
 
         if(e.target.name == "suma" && this.state.cantidad <10)
@@ -46,6 +47,7 @@ class Badge extends React.Component {
         }
     }
     render(){
+        console.log(process.env.TEST);
         return(  
             <form className="form-group" onSubmit={this.handleSubmit}>
                 <img src={header} className="w-100" alt="" />
