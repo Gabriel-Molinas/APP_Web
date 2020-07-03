@@ -3,10 +3,18 @@ import "./styles/style.css";
 import header from './images/head-img.png';
 import suma from './images/Suma.png';
 import resta from './images/Resta.png';
+import axios from 'axios';
 
 class Badge extends React.Component {
-    state = { cantidad: 0 };
+    constructor () {
+        super()
+        this.state = {
+          username: ' '
+        }
+        this.handleClick = this.handleClick.bind(this)
+    }
 
+    state = { cantidad: 0 };
     handleSubmit = e =>{
         e.preventDefault();
     }
@@ -14,6 +22,14 @@ class Badge extends React.Component {
         console.log({value: e.target.value});
     }
     handleClick = e =>{
+
+        if(e.target.name == "finish"){
+            console.log("Holaa Fin");
+
+            axios.get(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${process.env.TELEGRAM_GROUP_ID}&text= Bueno, un peso menos`)
+            .then(response => console.log(response))
+        }
+
         if(e.target.name == "suma" && this.state.cantidad <10)
         {
             this.setState({ cantidad: this.state.cantidad +1 });
@@ -51,16 +67,16 @@ class Badge extends React.Component {
                      <input  className="form-control rounded-0" type="text" name="telefono" placeholder="Ej: calle - 1234" />
                     </div>
 
-                    <div class="form-group m-2">
-                     <label className="label-badge m-2" for="Localidad">LOCALIDAD</label>
-                     <input  class="form-control rounded-0" type="text" name="telefono" placeholder="Ej: MUNRO" />
-                    </div>
-
                     <div class="form-group ml-5">
                         <label class="m-2 w-25" className="label-badge" for="sel1">PISO</label>
                         <input  class="rounded-1 border-input m-2 w-25" type="text" name="piso" placeholder="Ej: 3ro" />
                         <label class="m-2 w-25" className="label-badge" for="sel1">DEPTO</label>
                         <input  class="rounded-1 border-input m-2 w-25" type="text" name="depto" placeholder="Ej: 1B" />
+                    </div>
+
+                    <div class="form-group m-2">
+                     <label className="label-badge m-2" for="Localidad">LOCALIDAD</label>
+                     <input  class="form-control rounded-0" type="text" name="telefono" placeholder="Ej: MUNRO" />
                     </div>
 
                     <div class="form-group m-2">
@@ -89,7 +105,7 @@ class Badge extends React.Component {
                     </div>
 
                     <div class= 'form-group m-2'>
-                    <input type="button" value="REALIZAR PEDIDO" class="form-control rounded-0 btn btn-danger" disabled></input>
+                    <input onClick={this.handleClick} name="finish" type="button" value="REALIZAR PEDIDO" class="form-control rounded-0 btn btn-danger"></input>
                     </div>
                     <label className="label-badge m-2" for="Direccion">IMPORTANTE: APP EN CONSTRUCCIÓN</label>
             </form>
