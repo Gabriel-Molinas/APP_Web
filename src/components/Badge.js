@@ -17,6 +17,7 @@ class Badge extends React.Component {
                  Sabor:'Manzana',
                  Piso:'',
                  Depto:'',
+                 Localidad:'NONE',
                 }
                 };
     handleSubmit = e =>{
@@ -36,7 +37,7 @@ class Badge extends React.Component {
             case"finish":
             var pedido = this.state.form
             console.log(pedido);
-            axios.get(process.env.REACT_APP_TEST + `→ NUEVO PEDIDO =-=-=-=-=-= → NOMBRE: ${pedido.Nombre} → TELEFONO:  ${pedido.Telefono} → DIRECCÓN: ${pedido.Direccion} → PISO: ${this.state.Piso} ❘ Depto: ${this.state.Piso} → CANTIDAD: ${this.state.cantidad}`);
+           axios.get(process.env.REACT_APP_TEST + `→ NUEVO PEDIDO =-=-=-=-=-= → NOMBRE: ${pedido.Nombre} → TELEFONO:  ${pedido.Telefono} → DIRECCÓN: ${pedido.Direccion} → PISO: ${pedido.Piso} ❘ Depto: ${pedido.Depto} → LOCALIDAD: ${pedido.Localidad} → UNIDADES: ${this.state.cantidad}`);
             // axios.get(`https://api.telegram.org/bot${process.env.REACT_APP_BOT_ID}/sendMessage?chat_id=${process.env.REACT_APP_CHAT_ID}&text=→ NUEVO PEDIDO =-=-=-=-=-= → NOMBRE: ${pedido.Nombre} → TELEFONO:  ${pedido.Telefono} → DIRECCÓN: ${this.state.Direccion} → PISO: ${this.state.Piso} ❘ Depto: ${this.state.Piso} → CANTIDAD: ${this.state.cantidad}`);
             break;
             case "suma":
@@ -85,7 +86,7 @@ class Badge extends React.Component {
 
                     <div class="form-group m-2">
                      <label className="label-badge m-2" for="Localidad">LOCALIDAD</label>
-                     <input  class="form-control rounded-0" type="text" name="telefono" placeholder="Ej: MUNRO" />
+                     <input onChange={this.handleChange} class="form-control rounded-0" type="text" name="Localidad" placeholder="Ej: MUNRO" />
                     </div>
 
                     <div class="form-group m-2">
