@@ -36,7 +36,7 @@ class Badge extends React.Component {
             case"finish":
             var pedido = this.state.form
             console.log(pedido);
-           axios.get(process.env.REACT_APP_TEST + `→ NUEVO PEDIDO =-=-=-=-=-= → NOMBRE: ${pedido.Nombre} → TELEFONO:  ${pedido.Telefono} → DIRECCÓN: ${this.state.Direccion} → PISO: ${this.state.Piso} ❘ Depto: ${this.state.Piso} → CANTIDAD: ${this.state.cantidad}`);
+        //    axios.get(process.env.REACT_APP_TEST + `→ NUEVO PEDIDO =-=-=-=-=-= → NOMBRE: ${pedido.Nombre} → TELEFONO:  ${pedido.Telefono} → DIRECCÓN: ${this.state.Direccion} → PISO: ${this.state.Piso} ❘ Depto: ${this.state.Piso} → CANTIDAD: ${this.state.cantidad}`);
             // axios.get(`https://api.telegram.org/bot${process.env.REACT_APP_BOT_ID}/sendMessage?chat_id=${process.env.REACT_APP_CHAT_ID}&text=→ NUEVO PEDIDO =-=-=-=-=-= → NOMBRE: ${pedido.Nombre} → TELEFONO:  ${pedido.Telefono} → DIRECCÓN: ${this.state.Direccion} → PISO: ${this.state.Piso} ❘ Depto: ${this.state.Piso} → CANTIDAD: ${this.state.cantidad}`);
             break;
             case "suma":
@@ -72,8 +72,8 @@ class Badge extends React.Component {
                     </div>
                     
                     <div className="form-group m-2">
-                     <label  onChange={this.handleChange} name="Direccion" className="label-badge m-2" for="Direccion">DIRECCIÓN</label>
-                     <input  className="form-control rounded-0" type="text" name="telefono" placeholder="Ej: calle - 1234" />
+                     <label   name="Direccion" className="label-badge m-2" for="Direccion">DIRECCIÓN</label>
+                     <input  onChange={this.handleChange} className="form-control rounded-0" type="text" name="Direccion" placeholder="Ej: calle - 1234" />
                     </div>
 
                     <div class="form-group ml-5">
