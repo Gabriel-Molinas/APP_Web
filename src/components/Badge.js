@@ -36,8 +36,8 @@ class Badge extends React.Component {
             case"finish":
             var pedido = this.state.form
             console.log(pedido);
-        //    axios.get(process.env.REACT_APP_TEST + `→ NUEVO PEDIDO =-=-=-=-=-= → NOMBRE: ${pedido.Nombre} → TELEFONO:  ${pedido.Telefono} → DIRECCÓN: ${this.state.Direccion} → PISO: ${this.state.Piso} ❘ Depto: ${this.state.Piso} → CANTIDAD: ${this.state.cantidad}`);
-            axios.get(`https://api.telegram.org/bot${process.env.REACT_APP_BOT_ID}/sendMessage?chat_id=${process.env.REACT_APP_CHAT_ID}&text=→ NUEVO PEDIDO =-=-=-=-=-= → NOMBRE: ${pedido.Nombre} → TELEFONO:  ${pedido.Telefono} → DIRECCÓN: ${this.state.Direccion} → PISO: ${this.state.Piso} ❘ Depto: ${this.state.Piso} → CANTIDAD: ${this.state.cantidad}`);
+           axios.get(process.env.REACT_APP_TEST + `→ NUEVO PEDIDO =-=-=-=-=-= → NOMBRE: ${pedido.Nombre} → TELEFONO:  ${pedido.Telefono} → DIRECCÓN: ${this.state.Direccion} → PISO: ${this.state.Piso} ❘ Depto: ${this.state.Piso} → CANTIDAD: ${this.state.cantidad}`);
+            // axios.get(`https://api.telegram.org/bot${process.env.REACT_APP_BOT_ID}/sendMessage?chat_id=${process.env.REACT_APP_CHAT_ID}&text=→ NUEVO PEDIDO =-=-=-=-=-= → NOMBRE: ${pedido.Nombre} → TELEFONO:  ${pedido.Telefono} → DIRECCÓN: ${this.state.Direccion} → PISO: ${this.state.Piso} ❘ Depto: ${this.state.Piso} → CANTIDAD: ${this.state.cantidad}`);
             break;
             case "suma":
                 if(this.state.cantidad <10)  this.setState({ cantidad: this.state.cantidad +1 });
