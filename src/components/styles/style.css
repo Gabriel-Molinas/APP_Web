@@ -37,6 +37,12 @@
         left: 50%;
         transform: translatex(-50%);
     }
+
+    .pedido {
+        position: absolute;
+        left: 30%;
+        transform: translatex(-20%);
+    }
     .unity{
         fill:white;
         stroke:black;
