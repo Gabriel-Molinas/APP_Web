@@ -4,11 +4,15 @@ import header from './images/head-img.png';
 import suma from './images/Suma.png';
 import resta from './images/Resta.png';
 import axios from 'axios';
-require('dotenv').config();
+import { Redirect } from 'react-router';
+
+const dotenv = require('dotenv').config();
 
 class Badge extends React.Component {
     
     state = {
+                redirect_yes:false,
+                redirect_noup:false,
                 cantidad: 1, 
                 form:{
                  Nombre:'NONE',
@@ -37,8 +41,14 @@ class Badge extends React.Component {
             case"finish":
             var pedido = this.state.form
             console.log(pedido);
-           axios.get(process.env.REACT_APP_TEST + `→ NUEVO PEDIDO =-=-=-=-=-= → NOMBRE: ${pedido.Nombre} → TELEFONO:  ${pedido.Telefono} → DIRECCÓN: ${pedido.Direccion} → PISO: ${pedido.Piso} ❘ Depto: ${pedido.Depto} → LOCALIDAD: ${pedido.Localidad} → UNIDADES: ${this.state.cantidad}`);
-            // axios.get(`https://api.telegram.org/bot${process.env.REACT_APP_BOT_ID}/sendMessage?chat_id=${process.env.REACT_APP_CHAT_ID}&text=→ NUEVO PEDIDO =-=-=-=-=-= → NOMBRE: ${pedido.Nombre} → TELEFONO:  ${pedido.Telefono} → DIRECCÓN: ${this.state.Direccion} → PISO: ${this.state.Piso} ❘ Depto: ${this.state.Piso} → CANTIDAD: ${this.state.cantidad}`);
+           axios.get(process.env.REACT_APP_TEST + `→ NUEVO PEDIDO =-=-=-=-=-= → NOMBRE: ${pedido.Nombre} → TELEFONO:  ${pedido.Telefono} → DIRECCÓN: ${pedido.Direccion} → PISO: ${pedido.Piso} ❘ Depto: ${pedido.Depto} → LOCALIDAD: ${pedido.Localidad} → SABOR:${pedido.Sabor} → UNIDADES: ${this.state.cantidad}`)
+           .then(response => {
+            this.setState({redirect_yes: true});
+            })
+            .catch(e => {
+                this.setState({redirect_noup: true});
+            })
+
             break;
             case "suma":
                 if(this.state.cantidad <10)  this.setState({ cantidad: this.state.cantidad +1 });
@@ -56,6 +66,13 @@ class Badge extends React.Component {
 
     }
     render(){
+        if (this.state.redirect_yes) {
+            return <Redirect push to="/badge/exito" />;
+          }
+        if (this.state.redirect_noup) {
+            return <Redirect push to="/badge/error" />;
+          }
+
         return(  
             <form className="form-group" onSubmit={this.handleSubmit}>
                 <img src={header} className="w-100" alt="" />
@@ -85,8 +102,8 @@ class Badge extends React.Component {
                     </div>
 
                     <div class="form-group m-2">
-                     <label className="label-badge m-2" for="Localidad">LOCALIDAD</label>
-                     <input onChange={this.handleChange} class="form-control rounded-0" type="text" name="Localidad" placeholder="Ej: MUNRO" />
+                     <label class="label-badge m-2" for="Localidad">LOCALIDAD</label>
+                     <input onChange={this.handleChange} className="form-control rounded-0" type="text" name="Localidad" placeholder="Ej: MUNRO" />
                     </div>
 
                     <div class="form-group m-2">
