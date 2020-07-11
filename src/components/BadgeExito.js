@@ -18,12 +18,18 @@ class BadgeExito extends React.Component
                 </div>
                 
                 <div className="text-center" >
-                <label className="label-badge" for="Direccion">PEDÍDO REALIZADO CON ÉXITO</label>
+                <label className="label-badge" for="Direccion">PEDIDO REALIZADO CON ÉXITO</label>
                 </div>
-
+                
                 <div className="form-group">
                 <div className="h-divider" />
+                
+                <div className="text-center m-2">
+                <label className="label-badge" for="Direccion">En minutos se confirmará su pedido</label>
                 </div>
+
+                </div>
+                
             </div> 
         )
     }

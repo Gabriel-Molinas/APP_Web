@@ -18,13 +18,18 @@ class BadgeError extends React.Component
                 </div>
                 
                 <div className="text-center" >
-                <label   className="label-badge" for="Direccion">NO SE PUDO REALIZAR TÚ PEDÍDO</label>
+                <label   className="label-badge" for="Direccion">NO SE PUDO REALIZAR TÚ PEDIDO</label>
                 </div>
 
                 <div className="form-group">
                 <div className="h-divider" />
                 </div>
-                <label className="label-badge m-2" for="Direccion">IMPORTANTE: POR FAVOR CONTACTAR CON :</label>
+                
+                <div class="alert alert-danger" role="alert">
+                IMPORTANTE: POR FAVOR CONTACTAR CON: 
+                <h2>+5491166782051</h2>
+                </div>
+
             </div> 
         )
     }

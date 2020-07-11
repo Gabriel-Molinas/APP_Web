@@ -16,7 +16,7 @@ class Badge extends React.Component {
                 cantidad: 1, 
                 form:{
                  Nombre:'NONE',
-                 Telefono:'NONE',
+                 Celular:'NONE',
                  Direccion:'NONE',
                  Sabor:'Manzana',
                  Piso:'',
@@ -41,20 +41,22 @@ class Badge extends React.Component {
             case"finish":
             var pedido = this.state.form
             console.log(pedido);
-           axios.get(process.env.REACT_APP_TEST + `→ NUEVO PEDIDO =-=-=-=-=-= → NOMBRE: ${pedido.Nombre} → TELEFONO:  ${pedido.Telefono} → DIRECCÓN: ${pedido.Direccion} → PISO: ${pedido.Piso} ❘ Depto: ${pedido.Depto} → LOCALIDAD: ${pedido.Localidad} → SABOR:${pedido.Sabor} → UNIDADES: ${this.state.cantidad}`)
+            if( (pedido.Nombre&&pedido.Celular&&pedido.Direccion&&pedido.Localidad)!='NONE' ){
+            
+           axios.get(process.env.REACT_APP_TEST + `→ NUEVO PEDIDO =-=-=-=-=-= → NOMBRE: ${pedido.Nombre} → CELULAR:  ${pedido.Celular} → DIRECCIÓN: ${pedido.Direccion} → PISO: ${pedido.Piso} ❘ Depto: ${pedido.Depto} → LOCALIDAD: ${pedido.Localidad} → SABOR:${pedido.Sabor} → UNIDADES: ${this.state.cantidad}`)
            .then(response => {
-            this.setState({redirect_yes: true});
+                this.setState({redirect_yes: true});
             })
             .catch(e => {
                 this.setState({redirect_noup: true});
             })
-
+        }
             break;
             case "suma":
                 if(this.state.cantidad <10)  this.setState({ cantidad: this.state.cantidad +1 });
             break;
             case "resta":
-                if(this.state.cantidad >0)
+                if(this.state.cantidad >1)
                 {
                      this.setState({ cantidad: this.state.cantidad -1 });
                  }else
@@ -82,7 +84,7 @@ class Badge extends React.Component {
                     </div>
                     
                     <div className="form-group m-2">
-                    <input onChange={this.handleChange} className="form-control rounded-0" type="text" name="Telefono" placeholder="TELÉFONO" />
+                    <input onChange={this.handleChange} className="form-control rounded-0" type="text" name="Celular" placeholder="CELULAR" />
                     </div>
                     
                     <div className="form-group m-2">
@@ -134,7 +136,7 @@ class Badge extends React.Component {
                     <div class= 'form-group m-2'>
                     <input onClick={this.handleClick} name="finish" type="button" value="REALIZAR PEDIDO" class="form-control rounded-0 btn btn-danger"></input>
                     </div>
-                    <label className="label-badge m-2" for="Direccion">IMPORTANTE: APP EN CONSTRUCCIÓN</label>
+                    <label className="label-badge m-2" for="Direccion">Pedidos de Lunes a Miércoles; Viernes entrega de pedidos </label>
             </form>
         )
     }
